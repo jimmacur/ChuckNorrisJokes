@@ -1,0 +1,17 @@
+.joke-history {
+  margin-top: 20px;
+}
+
+.joke-history h2 {
+  font-size: 1.5em;
+}
+
+.joke-history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.joke-history li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}

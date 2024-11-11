@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import JokeHistory from './JokeHistory';
 import './App.css';
 
 function App() {
   const [joke, setJoke] = useState('');
   const [showReaction, setShowReaction] = useState(false);
   const [message, setMessage] = useState('');
+  const [jokeHistory, setJokeHistory] = useState([]);
 
   const getJoke = async () => {
     try {
@@ -13,6 +15,7 @@ function App() {
       setJoke(data.value);
       setShowReaction(true);
       setMessage('');
+      setJokeHistory((prevHistory) => [...prevHistory, data.value]);
     } catch (error) {
       console.error("Error fetching joke:", error);
     }
@@ -26,10 +29,14 @@ function App() {
       setJoke('');
       setMessage(`Chuck Norris was always relaxed, even if it didn't look like it to you.`);
     }
-    
     setShowReaction(false);
     setJoke('');
   }
+
+  const deleteJoke = (index) => { 
+    setJokeHistory((prevHistory) => prevHistory.filter((joke, i) => i !== index));
+  }
+
 
   return (
     <main>
@@ -41,10 +48,11 @@ function App() {
       />
       <button onClick={getJoke} className='joke-button'>Get a Joke</button>
       {joke && <p className='joke'>{joke}</p>}
-      {showReaction && <p className='reaction'>Chuck Norris is not amused.</p>}
+      {showReaction}
 
       <button onClick={relaxChuck} className='relax-button'>Relax Chuck</button>
       {message && <p className='message'>{message}</p>}
+      <JokeHistory jokeHistory={jokeHistory} deleteJoke={deleteJoke} />
     </main>
   )
 }
