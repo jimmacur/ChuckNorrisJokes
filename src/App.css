@@ -3,36 +3,53 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  padding: 10px;
 }
-
 
 .main-header {
   background-color: #282c34;
   color: white;
   text-align: center;
   padding: 1rem;
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .friendly-chuck {
   border-radius: 10px;
   height: 300px;
   width: 300px;
+  object-fit: cover;
+  margin: 1rem;
 }
 
-.relax-button,
-.joke-button {
+button {
   background-color: #2eccf8;
   border: none;
   border-radius: 5px;
   color: white;
   padding: 8px 15px;
   text-align: center;
-  display: inline-block;
   font-size: 20px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin: 0 10px;
+  margin: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1abc9c;
 }
 
 .message,
@@ -40,4 +57,28 @@ main {
   font-size: 1.5rem;
   margin: 1rem;
   text-align: center;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
