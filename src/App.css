@@ -27,6 +27,7 @@ main {
   justify-content: center;
 }
 
+.unfriendly-chuck,
 .friendly-chuck {
   border-radius: 10px;
   height: 300px;

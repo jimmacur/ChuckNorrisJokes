@@ -52,7 +52,7 @@ function App() {
       <div className='content-container'>
         <img 
           src={showReaction ? '/assets/unfriendly_chuck.jpg' : '/assets/friendly_chuck.jpg'}
-          className='friendly-chuck' 
+          className={showReaction ? 'unfriendly-chuck' : 'friendly-chuck' }
           alt='Chuck Norris' 
         />
         <div className='button-container'>
